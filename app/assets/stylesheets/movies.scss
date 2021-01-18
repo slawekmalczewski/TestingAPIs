@@ -1,0 +1,83 @@
+// Place all the styles related to the Movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.page-wrapper {
+  width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+  "welcome-area welcome-area"
+  "movie-column weather-column";
+  grid-gap: 15px 15px;
+}
+
+.welcome {
+  grid-area: welcome-area;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.movie-section {
+  grid-area: movie-column;
+  padding: 10px;
+}
+
+.weather-section {
+  grid-area: weather-column;
+  padding: 10px;
+  border-left: 2px solid black;
+}
+
+.weather-section-wrapper {
+  margin-left: 10px;
+  .weather_desc {
+    width: 100%;
+    margin: 5px 0 5px 0;
+    background-color: orange;
+    padding: 5px;
+    font-size: 1.10rem;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+}
+
+// media query
+@media only screen and (max-width: 600px) {
+  .container {
+    display: grid;
+    grid-template-areas:
+    "welcome-area"
+    "movie-column"
+    "weather-column";
+    grid-gap: 15px 15px;
+  }
+
+  .welcome {
+    grid-area: welcome-area;
+    width: 500px;
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .movie-section {
+    grid-area: movie-column;
+    width: 400px;
+    padding: 10px;
+
+  }
+
+  .weather-section {
+    grid-area: weather-column;
+    width: 400px;
+    padding: 10px;
+    border-left: 0px;
+
+  }
+
+}

@@ -1,0 +1,59 @@
+<div class="page-wrapper">
+  <div class="container">
+    <section class="welcome">
+      <h1>Testing APIs</h1>
+      <p>A simple web application created for training the use of API calls.
+        This small application through the APIs calls access and interacts with the data in the Open Movie Database (OMDb) as well as with the data from the Weather Unlocked platform.</p>
+    </section>
+
+      <section class="movie-section">
+        <h3>Movie Search</h3>
+        <div class="movie-search">
+          <%= form_tag(movies_path, method: :get) do %>
+          <%= text_field_tag :search, nil, placeholder: 'Search by Title' %>
+          <%= submit_tag ("Search"), class: 'btn btn-outline-warning ml-3' %>
+          <% end %>
+        </div>
+
+        <div class="movie-details">
+          <p>Title: <%= @movie["Title"] %></p>
+          <p>Year: <%= @movie["Year"] %></p>
+          <p>Released: <%= @movie["Released"] %></p>
+          <p>Runtime: <%= @movie["Runtime"] %></p>
+          <p>Genre: <%= @movie["Genre"] %></p>
+          <p>Director: <%= @movie["Director"] %></p>
+          <p>Actors: <%= @movie["Actors"] %></p>
+          <p>Awards: <%= @movie["Awards"] %></p>
+          <p>BoxOffice: <%= @movie["BoxOffice"] %></p>
+          <p>Plot: <%= @movie["Plot"] %></p>
+        </div>
+      </section>
+
+      <section class="weather-section">
+        <div class="weather-section-wrapper">
+          <h3>Check Current Weather</h3>
+          <div>
+            <%= form_tag(movies_path, method: :get) do %>
+            <%= text_field_tag :location, nil, :size => "25", placeholder: 'Search by lat and lon i.e 53.346,-6.265' %>
+            <%= submit_tag ("Get Weather"), class: 'btn btn-outline-warning ml-3' %>
+            <% end %>
+          </div>
+
+          <div>
+            <div class="weather_desc">
+              <p>Weather Description: <%= @weather["wx_desc"] %></p>
+            </div>
+            <p>Latidute: <%= @weather["lat"] %></p>
+            <p>Longitude: <%= @weather["lon"] %></p>
+            <p>Local Time: <%= Time.now() %></p>
+            <p>Temp [C]: <%= @weather["temp_c"] %></p>
+            <p>Feels like [C]: <%= @weather["feelslike_c"] %></p>
+            <p>Wind speed [kmh]: <%= @weather["windspd_kmh"] %></p>
+            <p>Amount of Clouds [%]: <%= @weather["cloudtotal_pct"] %></p>
+            <p>Humidity Level [%]: <%= @weather["humid_pct"] %></p>
+          </div>
+        </div>
+      </section>
+  </div>
+
+</div>
